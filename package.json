@@ -1,0 +1,9 @@
+{
+  "name": "wink-ui",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "node-winkapi": "git+https://github.com/dirwin517/node-winkapi.git"
+  }
+}

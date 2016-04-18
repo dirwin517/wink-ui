@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-chart/2.0.18/LineChart.css">
+    <title>Shouty</title>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.js"></script>
+
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/line-chart/2.0.18/LineChart.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <style>
+        .column-left{
+            float: left;
+            width: 33%;
+            background-color: #CCCCCC;
+        }
+        .column-right{
+            float: right;
+            width: 33%;
+            background-color: #CCCCCC;
+        }
+        .column-center{
+            display: inline-block;
+            width: 33%;
+            background-color: #CCCCCC;
+        }
+    </style>
+
+</head>
+
+<body ng-app="hello">
+<div ng-controller="navigation">
+    <h1>Winky</h1>
+
+    <div class="column-left">
+        <img  ng-src="{{getIconSrcById('binary_switch')}}">
+        <div ng-repeat='(key, value) in data.outlets'  heigth="148px">
+            <span>{{key}}</span>
+            <a ng-click="updateDevice(value)"><img  ng-src="{{poweredIcon(value.powered)}}" width="128px" heigth="128px"></a>
+            <br/>
+        </div>
+    </div>
+
+
+    <div class="column-center">
+        <img  ng-src="{{getIconSrcById('light')}}">
+        <div ng-repeat='(key, value) in data.lights' heigth="148px">
+            <span>{{key}}</span>
+            <a ng-click="updateDevice(value)"><img  ng-src="{{poweredIcon(value.powered)}}" width="128px" heigth="128px"></a>
+            <br/>
+        </div>
+    </div>
+
+    <div class="column-right">
+        <img  ng-src="{{getIconSrcById('powerstrip')}}">
+        <div ng-repeat='(key, value) in data.powerstrips' heigth="148px">
+            <span>{{key}}</span>
+            <a ng-click="updateDevice(value)"><img  ng-src="{{poweredIcon(value.powered)}}" width="128px" heigth="128px"></a>
+            <!--<span><img ng-src="{{getIconSrcById(value.icon_id)}}"></span>-->
+            <br/>
+        </div>
+    </div>
+
+    </div>
+</body>
+</html>
+                     
